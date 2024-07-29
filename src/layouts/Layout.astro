@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
   description?: string;
@@ -9,7 +10,7 @@ interface Props {
 const {
   title,
   description = "A community of music producers and enthusiasts",
-  image = "/images/band.jpg",
+  image = "./images/band.jpg",
 } = Astro.props;
 ---
 
@@ -22,9 +23,10 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:image" content={image} />
+    <ViewTransitions />
     <title>{title}</title>
   </head>
-  <body class="bg-gray-200 min-h-screen text-zinc-800 font-sans">
+  <body class="bg-gray-300 min-h-screen text-gray-800 font-sans">
     <Header />
     <slot />
   </body>
